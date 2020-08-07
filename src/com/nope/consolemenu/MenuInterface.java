@@ -53,6 +53,7 @@ public class MenuInterface {
     //Shows an element that will allow to go to the main element
     private boolean mainMenuSelectionAllowed;
 
+    
     Util util;
     LogTool logTool;
 
@@ -155,7 +156,7 @@ public class MenuInterface {
         // If indirect selection is not allowed we have to check if
         for (int id : currentElement.getChildren()) {
 
-            if (id == elementID) {
+            if (id == elementID || indirectSelectionAllowed) {
                 isElementValid = true;
                 break;
             }
@@ -354,5 +355,29 @@ public class MenuInterface {
      */
     public int obtainId() {
         return ++count;
+    }
+    
+    public boolean isIndirectSelectionAllowed(){
+        return indirectSelectionAllowed;
+    }
+
+    public void setIndirectSelectionAllowed(boolean indirectSelectionAllowed){
+        this.indirectSelectionAllowed = indirectSelectionAllowed;
+    }
+
+    public boolean isBackSelectionAllowed(){
+        return backSelectionAllowed;
+    }
+
+    public void setBackSelectionAllowed(boolean backSelectionAllowed){
+        this.backSelectionAllowed = backSelectionAllowed;
+    }
+
+    public boolean isMainMenuSelectionAllowed(){
+        return mainMenuSelectionAllowed;
+    }
+
+    public void setMainMenuSelectionAllowed(boolean mainMenuSelectionAllowed){
+        this.mainMenuSelectionAllowed = mainMenuSelectionAllowed;
     }
 }
